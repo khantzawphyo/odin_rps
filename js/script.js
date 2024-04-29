@@ -1,18 +1,18 @@
-choices = ["rock", "paper", "scissors"];
-const getComputerChoice = () => choices[Math.floor(Math.random() * choices.length)];
+validChoices = ["rock", "paper", "scissors"];
+const getComputerChoice = () => validChoices[Math.floor(Math.random() * validChoices.length)];
 
-function getHumanChoice() {
+function getHumanChoice(validChoices) {
     const userChoice = prompt("Enter your choice (rock, paper, scissors): ").toLowerCase();
-    if (userChoice === "rock" || userChoice === "paper" || userChoice === "scissors") {
+    if (validChoices.includes(userChoice)) {
         return userChoice;
     }
     else {
         alert("Invalid choice!");
-        return getHumanChoice();
+        return getHumanChoice(validChoices);
     }
 }
 
-function playGame() {
+function playGame(rounds) {
     let humanScore = 0;
     let computerScore = 0;
 
@@ -45,8 +45,8 @@ function playGame() {
         console.log(`${result} ${explanation}`);
     }
 
-    for (let i = 0; i < 5; i++) {
-        const humanChoice = getHumanChoice();
+    for (let i = 0; i < rounds; i++) {
+        const humanChoice = getHumanChoice(validChoices);
         const computerChoice = getComputerChoice();
         playRound(humanChoice, computerChoice);
     }
@@ -58,8 +58,6 @@ function playGame() {
     } else {
         console.log("It's a tie! The game ends in a draw.");
     }
-
-    
 }
 
-playGame();
+playGame(5);
