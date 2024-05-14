@@ -59,8 +59,8 @@ document.addEventListener('DOMContentLoaded', () => {
         computerScore = 0;
         playerScoreElement.textContent = 0;
         computerScoreElement.textContent = 0;
-        playerChoiceElement.textContent = '';
-        computerChoiceElement.textContent = '';
+        playerChoiceElement.textContent = '❔';
+        computerChoiceElement.textContent = '❔';
         gameMessageElement.textContent = 'The first to score 5 points win!';
     }
 
