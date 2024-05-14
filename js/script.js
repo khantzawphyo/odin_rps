@@ -25,7 +25,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const getComputerChoice = () => choices[Math.floor(Math.random() * choices.length)];
 
     const playRound = (playerChoice, computerChoice) => {
-
         if (playerChoice === computerChoice) {
             return "It's a tie!";
         }
@@ -47,6 +46,22 @@ document.addEventListener('DOMContentLoaded', () => {
         gameMessageElement.textContent = result;
         playerScoreElement.textContent = playerScore;
         computerScoreElement.textContent = computerScore;
+
+        if (playerScore === 5 || computerScore === 5) {
+            const winner = playerScore === 5 ? 'You' : 'Computer';
+            alert(`${winner} win the game!`);
+            resetGame();
+        }
+    }
+
+    const resetGame = () => {
+        playerScore = 0;
+        computerScore = 0;
+        playerScoreElement.textContent = 0;
+        computerScoreElement.textContent = 0;
+        playerChoiceElement.textContent = '';
+        computerChoiceElement.textContent = '';
+        gameMessageElement.textContent = 'The first to score 5 points win!';
     }
 
     buttons.forEach((button) => {
