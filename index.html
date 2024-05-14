@@ -14,57 +14,58 @@
         rel="stylesheet">
     <!-- Font Awesome -->
     <script src="https://kit.fontawesome.com/5786aab587.js" crossorigin="anonymous"></script>
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👋🏻</text></svg>">
+
     <title>Rock Paper Scissors</title>
 </head>
 
 <body>
-    <div class="app">
-        <div class="header">
-            <h1 class="title">
-                Rock Paper Scissors
+    <div class="header">
+        <h1 class="title">
+            Rock Paper Scissors
+        </h1>
+    </div>
+
+    <div class="game-container">
+        <div class="game-info-container">
+            <h1 class="game-info">
+                Choose your weapon
             </h1>
-        </div>
-
-        <div class="game-container">
-            <div class="game-info-container">
-                <h1 class="game-info">
-                    Choose your weapon
-                </h1>
-                <p class="game-message">
-                    The first to reach 5 points wins the game!
-                </p>
-            </div>
-
-            <div class="buttons">
-                <button id="rock">✊</button>
-                <button id="paper">🖐️</button>
-                <button id="scissors">✌️</button>
-            </div>
-
-            <div class="scores">
-                <div class="player-score-container">
-                    <p class="player-choice">❔</p>
-                    <p class="player-score">Player: <span>0</span></p>
-                </div>
-                <div class="computer-score-container">
-                    <div class="computer-choice">❔</div>
-                    <p class="computer-score">Computer: <span>0</span></p>
-                </div>
-            </div>
-        </div>
-
-        <div class="footer">
-            <p>
-                Copyright &copy;
-                <script>
-                    document.write(new Date().getFullYear());
-                </script>
-                Khant Zaw Phyo
-                <a href="https://github.com/khantzawphyo">
-                    <i class="fa-brands fa-github"></i>
-                </a>
+            <p class="game-message">
+                The first to reach 5 points wins the game!
             </p>
         </div>
+
+        <div class="buttons">
+            <button class="btn" id="rock">✊🏻</button>
+            <button class="btn" id="paper">🖐🏻</button>
+            <button class="btn" id="scissors">✌🏻</button>
+        </div>
+
+        <div class="scores">
+            <div class="player-score-container">
+                <p class="player-choice">❔</p>
+                <p class="player-score">Player: <span>0</span></p>
+            </div>
+            <div class="computer-score-container">
+                <div class="computer-choice">❔</div>
+                <p class="computer-score">Computer: <span>0</span></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>
+            Copyright &copy;
+            <script>
+                document.write(new Date().getFullYear());
+            </script>
+            Khant Zaw Phyo
+            <a href="https://github.com/khantzawphyo">
+                <i class="fa-brands fa-github"></i>
+            </a>
+        </p>
     </div>
 
     <script src="./js/script.js"></script>

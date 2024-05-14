@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const gameMessageElement = document.querySelector('.game-message');
     const playerChoiceElement = document.querySelector('.player-choice');
     const computerChoiceElement = document.querySelector('.computer-choice');
+    const audio = new Audio("../click.wav");
 
     if (!buttons.length || !playerScoreElement || !computerScoreElement || !gameMessageElement || !playerChoiceElement || !computerChoiceElement) {
         console.error('One or more elements are missing in the DOM.');
@@ -13,9 +14,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const choices = ["ROCK", "PAPER", "SCISSORS"];
     const icons = {
-        ROCK: '✊',
-        PAPER: '🖐️',
-        SCISSORS: '✌️'
+        ROCK: '✊🏻',
+        PAPER: '🖐🏻',
+        SCISSORS: '✌🏻'
     };
 
     let playerScore = 0;
@@ -50,6 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     buttons.forEach((button) => {
         button.addEventListener('click', () => {
+            audio.play();
             const playerChoice = button.id.toUpperCase();
             if (!choices.includes(playerChoice)) {
                 console.error(`Invalid player choice: ${playerChoice}`);

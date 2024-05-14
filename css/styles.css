@@ -1,0 +1,170 @@
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button {
+    border: none;
+    color: inherit;
+    font-family: inherit;
+    font-size: inherit;
+    cursor: pointer;
+    outline: none;
+}
+
+/* Header */
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0px;
+    background-color: #333;
+}
+
+.title {
+    font-size: 45px;
+    color: #eee;
+}
+
+.game-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.game-info-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.game-info {
+    font-size: 32px;
+    margin-top: 20px;
+}
+
+.game-message {
+    font-size: 24px;
+    font-weight: 500;
+    margin-top: 10px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+.btn {
+    padding: 16px;
+    font-size: 80px;
+    border-radius: 10px;
+    transition: all 0.5s ease;
+    background: rgba(104, 104, 104, 0.1);
+}
+
+.btn:hover {
+    background: rgba(88, 86, 86, 0.2);
+    transform: scale(1.1);
+}
+
+.scores {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+    font-size: 24px;
+}
+
+.player-score-container,
+.computer-score-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.player-choice,
+.computer-choice {
+    font-size: 56px;
+}
+
+.player-score span,
+.computer-score span {
+    font-weight: 600;
+}
+
+.footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    font-size: 18px;
+    font-weight: 500;
+    opacity: .8;
+}
+
+.fa-github {
+    font-size: 20px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.fa-github:hover {
+    transform: rotate(360deg) scale(1.2);
+}
+
+
+/* Media Queries */
+@media (max-width: 550px) {
+    .title {
+        font-size: 24px;
+        ;
+    }
+
+    .game-info {
+        font-size: 24px;
+    }
+
+    .game-message {
+        font-size: 18px;
+    }
+
+    .buttons {
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    .btn {
+        font-size: 50px;
+    }
+
+    .player-choice,
+    .computer-choice {
+        font-size: 40px;
+    }
+
+    .modal {
+        width: 95%;
+    }
+}
