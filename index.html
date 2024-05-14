@@ -1,12 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
 </head>
+
 <body>
-    
+    <div class="app">
+        <div class="header">
+            <h1 class="title">
+                Rock Paper Scissors
+            </h1>
+        </div>
+
+        <div class="game-container">
+            <div class="game-info-container">
+                <h1 class="game-info">
+                    Choose your weapon
+                </h1>
+                <p class="game-message">
+                    The first to reach 5 points wins the game!
+                </p>
+            </div>
+
+            <div class="buttons">
+                <button id="rock">✊</button>
+                <button id="paper">🖐️</button>
+                <button id="scissors">✌️</button>
+            </div>
+
+            <div class="scores">
+                <div class="player-score-container">
+                    <p class="player-choice">❔</p>
+                    <p class="player-score">Player: <span>0</span></p>
+                </div>
+                <div class="computer-score-container">
+                    <div class="computer-choice">❔</div>
+                    <p class="computer-score">Computer: <span>0</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="./js/script.js"></script>
 </body>
+
 </html>
