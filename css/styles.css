@@ -10,6 +10,7 @@ body {
     font-family: 'Poppins', Arial, Helvetica, sans-serif;
     font-size: 16px;
     line-height: 1.6;
+    margin-bottom: 100px;
 }
 
 a {
@@ -52,7 +53,7 @@ button {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 100px;
 }
 
 .game-info {
@@ -114,15 +115,15 @@ button {
 }
 
 .footer {
-    position: absolute;
-    left: 0;
-    bottom: 0;
+    /* bottom: 0;
+    left: 0; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
     width: 100%;
-    text-align: center;
-    padding: 20px;
-    font-size: 18px;
-    font-weight: 500;
-    opacity: .8;
+    /* padding: 10px; */
+    font-size: 20px;
 }
 
 .fa-github {
@@ -161,6 +162,10 @@ button {
 
     .player-choice,
     .computer-choice {
-        font-size: 40px;
+        font-size: 24px;
+    }
+
+    .footer {
+        font-size: 16px;
     }
 }
