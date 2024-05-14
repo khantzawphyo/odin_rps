@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const playerScoreElement = document.querySelector('.player-score span');
     const computerScoreElement = document.querySelector('.computer-score span');
     const choices = document.querySelectorAll('.choices button');
-    const audio = new Audio('/assets/click.wav');
+    const audio = new Audio('./assets/click.wav');
 
     const icons = {
         ROCK: '✊🏻',
