@@ -1,58 +1,59 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const buttons = document.querySelectorAll('.buttons button');
-    const playerScoreElement = document.querySelector('.player-score span');
-    const computerScoreElement = document.querySelector('.computer-score span');
     const gameMessageElement = document.querySelector('.game-message');
     const playerChoiceElement = document.querySelector('.player-choice');
     const computerChoiceElement = document.querySelector('.computer-choice');
-    const audio = new Audio("../click.wav");
+    const playerScoreElement = document.querySelector('.player-score span');
+    const computerScoreElement = document.querySelector('.computer-score span');
+    const choices = document.querySelectorAll('.choices button');
+    const audio = new Audio('/assets/click.wav');
 
-    if (!buttons.length || !playerScoreElement || !computerScoreElement || !gameMessageElement || !playerChoiceElement || !computerChoiceElement) {
-        console.error('One or more elements are missing in the DOM.');
-        return;
-    }
-
-    const choices = ["ROCK", "PAPER", "SCISSORS"];
     const icons = {
         ROCK: '✊🏻',
         PAPER: '🖐🏻',
         SCISSORS: '✌🏻'
     };
 
+    const choicesList = ['ROCK', 'PAPER', 'SCISSORS'];
+
     let playerScore = 0;
     let computerScore = 0;
 
-    const getComputerChoice = () => choices[Math.floor(Math.random() * choices.length)];
+    const generateComputerChoice = () => choicesList[Math.floor(Math.random() * choicesList.length)];
 
     const playRound = (playerChoice, computerChoice) => {
-        if (playerChoice === computerChoice) {
-            return "It's a tie!";
-        }
-        else if (
-            (playerChoice === "ROCK" && computerChoice === "SCISSORS") ||
-            (playerChoice === "PAPER" && computerChoice === "ROCK") ||
-            (playerChoice === "SCISSORS" && computerChoice === "PAPER")
-        ) {
-            playerScore++;
-            return `${icons[playerChoice]} beats ${icons[computerChoice]}. You Win!`;
-        }
-        else {
-            computerScore++;
-            return `${icons[computerChoice]} beats ${icons[playerChoice]}. You Lose!`;
-        }
-    }
+        const winConditions = {
+            ROCK: 'SCISSORS',
+            PAPER: 'ROCK',
+            SCISSORS: 'PAPER'
+        };
 
-    const updateScore = (result) => {
+        if (playerChoice === computerChoice) {
+            return "It is a tie.";
+        } else if (winConditions[playerChoice] === computerChoice) {
+            playerScore++;
+            return `${icons[playerChoice]} beats ${icons[computerChoice]}`;
+        } else {
+            computerScore++;
+            return `${icons[computerChoice]} beats ${icons[playerChoice]}`;
+        }
+    };
+
+    const updateInfos = (result) => {
         gameMessageElement.textContent = result;
         playerScoreElement.textContent = playerScore;
         computerScoreElement.textContent = computerScore;
 
-        if (playerScore === 5 || computerScore === 5) {
-            const winner = playerScore === 5 ? 'You' : 'Computer';
-            alert(`${winner} win the game!`);
-            resetGame();
-        }
-    }
+         // Ensure the DOM updates before triggering the alert
+         requestAnimationFrame(() => {
+            if (playerScore === 5 || computerScore === 5) {
+                setTimeout(() => {
+                    const winner = playerScore === 5 ? 'You' : 'Computer';
+                    alert(`${winner} win the game!`);
+                    resetGame();
+                }, 0);
+            }
+        });
+    };
 
     const resetGame = () => {
         playerScore = 0;
@@ -61,22 +62,18 @@ document.addEventListener('DOMContentLoaded', () => {
         computerScoreElement.textContent = 0;
         playerChoiceElement.textContent = '❔';
         computerChoiceElement.textContent = '❔';
-        gameMessageElement.textContent = 'The first to score 5 points win!';
+        gameMessageElement.textContent = 'First to score 5 points wins.';
     }
 
-    buttons.forEach((button) => {
-        button.addEventListener('click', () => {
+    choices.forEach((choice) => {
+        choice.addEventListener('click', () => {
             audio.play();
-            const playerChoice = button.id.toUpperCase();
-            if (!choices.includes(playerChoice)) {
-                console.error(`Invalid player choice: ${playerChoice}`);
-                return;
-            }
+            const playerChoice = choice.id;
             playerChoiceElement.textContent = icons[playerChoice];
-            const computerChoice = getComputerChoice();
+            const computerChoice = generateComputerChoice();
             computerChoiceElement.textContent = icons[computerChoice];
             const result = playRound(playerChoice, computerChoice);
-            updateScore(result);
+            updateInfos(result);
         });
     });
 });
