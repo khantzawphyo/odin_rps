@@ -5,6 +5,10 @@
     --text-color: #f4f4f4;
     --text-secondary-color: #ced4da;
     --border-color: #393e46;
+    --dot-bg: rgb(12, 12, 12);
+    --dot-color: rgba(255, 255, 255, 0.806);
+    --dot-size: 1px;
+    --dot-space: 22px;
     --font-family: 'Poppins', sans-serif;
 }
 
@@ -16,7 +20,8 @@
     box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
     height: 100%;
     margin: 0;
 }
@@ -25,20 +30,17 @@ body {
     display: flex;
     flex-direction: column;
     font-family: var(--font-family);
-    background: #111;
-    background-image: linear-gradient(35deg,
-            hsla(0, 0%, 7%, 1),
-            80%,
-            hsla(0, 0%, 7%, 0.6)),
-        linear-gradient(transparent calc(50% - 1px), #fff 1px, transparent calc(50% + 1px) 100%),
-        linear-gradient(to right, transparent calc(50% - 1px), #fff 1px, transparent calc(50% + 1px) 100%);
-    background-size: 100% 100%, 40px 40px, 40px 40px;
+    background:
+        linear-gradient(90deg, var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
+        linear-gradient(var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
+        var(--dot-color);
     text-align: center;
     color: var(--text-color);
 }
 
 main {
-    flex: 1;  /* Allows the main content to grow and take up available space */
+    flex: 1;
+    /* Allows the main content to grow and take up available space */
 }
 
 button {
@@ -78,6 +80,13 @@ h1.title {
 
 .game-message {
     font-size: 20px;
+    padding: 5px 16px;
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 30px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(2.5px);
+    -webkit-backdrop-filter: blur(2.5px);
+    border: 1px solid rgba(255, 255, 255, 0.79);
 }
 
 .score-board {
@@ -120,14 +129,23 @@ h1.title {
     padding: 10px;
     font-size: 80px;
     width: 150px;
-    background-color: rgba(106, 106, 106, 0.5);
-    border: 2px solid rgba(228, 228, 228, 0.5);
-    border-radius: 10px;
+    height: 150px;
     transition: all 0.5s ease;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
 .btn-choice:hover {
-    background-color: rgba(59, 59, 59, 0.5);
+    background: rgba(98, 98, 98, 0.25);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(2.5px);
+    -webkit-backdrop-filter: blur(2.5px);
+    border: 1px solid rgba(98, 98, 98, 0.79);
 }
 
 footer {
@@ -146,10 +164,90 @@ footer {
     transform: rotate(360deg) scale(1.2);
 }
 
+
+/* ... MODAL ... */
+
+/* ... other CSS styles ... */
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal.show,
+.overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* From https://css.glass */
+    background: rgba(52, 52, 52, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(52, 52, 52, 0.3);
+    padding: 20px;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+}
+
+.modal-card img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 20px;
+}
+
+.modal-message {
+    font-size: 20px;
+    padding: 10px 16px;
+    margin-bottom: 20px;
+}
+
+.btn-restart {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.25);
+    border-radius: 30px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(2.5px);
+    -webkit-backdrop-filter: blur(2.5px);
+    border: 1px solid rgba(255, 255, 255, 0.79);
+    transition: background 0.3s ease;
+}
+
+.btn-restart:hover {
+    background: rgba(98, 98, 98, 0.25);
+    border: 1px solid rgba(98, 98, 98, 0.79);
+}
+
+.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
 /* Media Queries */
 @media (max-width: 550px) {
     .title {
-        font-size: 24px;;
+        font-size: 24px;
     }
 
     .game-info {
@@ -163,13 +261,32 @@ footer {
     .choices {
         flex-wrap: wrap;
     }
+
     .btn-choice {
         gap: 10px;
     }
 
-
     .player-choice,
     .computer-choice {
         font-size: 40px;
+    }
+
+    .modal-card {
+        padding: 15px;
+        width: 90%;
+    }
+
+    .modal-card img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .modal-message {
+        font-size: 18px;
+    }
+
+    .btn-restart {
+        padding: 8px 16px;
+        font-size: 14px;
     }
 }
