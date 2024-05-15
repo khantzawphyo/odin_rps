@@ -153,7 +153,6 @@ footer {
     padding: 10px;
     font-size: 16px;
     font-weight: 400;
-    opacity: .8;
 }
 
 .fa-github {
@@ -166,8 +165,6 @@ footer {
 
 
 /* ... MODAL ... */
-
-/* ... other CSS styles ... */
 
 .modal {
     position: fixed;
