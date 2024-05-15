@@ -2,7 +2,7 @@
 
 ![Odin RPS](./assets/odin_rps.jpg)
 
-This is a Rock-Paper-Scissors game created as part of The Odin Project curriculum. The game allows users to play against the computer in a classic Rock-Paper-Scissors match.
+This is a Rock-Paper-Scissors game created as part of The Odin Project curriculum which is also my very first fully functional JavaScript game! The game allows users to play against the computer in a classic Rock-Paper-Scissors match.
 
 ## Live Demo
 
