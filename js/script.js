@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const winAudio = new Audio('./assets/win.mp3');
     const loseAudio = new Audio('./assets/lose.mp3');
     const modal = document.querySelector('.modal');
-    const overlay = document.querySelector('.overlay');
     const modalMessage = document.querySelector('.modal-message');
     const modalEmoji = document.querySelector('.modal-emoji');
     const btnRestart = document.querySelector('.btn-restart');
