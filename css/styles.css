@@ -67,11 +67,8 @@ h1.title {
 
 .prevent-select {
     -webkit-user-select: none;
-    /* Safari */
     -ms-user-select: none;
-    /* IE 10 and IE 11 */
     user-select: none;
-    /* Standard syntax */
 }
 
 .game-header {
@@ -202,7 +199,6 @@ footer {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* From https://css.glass */
     background: rgba(52, 52, 52, 0.2);
     border-radius: 16px;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
